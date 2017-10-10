@@ -1,0 +1,77 @@
+{
+  "name": "actio_client_app",
+  "version": "1.0.0",
+  "description": "Cliente de Actio para Sugar",
+  "main": "index.js",
+  "scripts": {
+    "test-debug": "node-debug $(which gulp) test",
+    "build": "browserify -t [ babelify --presents [ react ] ] src/index.js -o build/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MerxBusinessPerformance/actio_client_app.git"
+  },
+  "keywords": [
+    "extension",
+    "react",
+    "merxbp"
+  ],
+  "author": "betobaz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MerxBusinessPerformance/actio_client_app/issues"
+  },
+  "homepage": "https://github.com/MerxBusinessPerformance/actio_client_app#readme",
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-0",
+      "react"
+    ]
+  },
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-cli": "^6.10.1",
+    "babel-core": "^6.10.4",
+    "babel-jest": "^13.2.2",
+    "babel-polyfill": "^6.9.1",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.0.1",
+    "classnames": "^2.2.5",
+    "expect.js": "^0.3.1",
+    "flux": "^2.1.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-eslint": "^3.0.1",
+    "gulp-html-replace": "^1.6.1",
+    "gulp-mocha": "^2.2.0",
+    "gulp-spawn-mocha": "^2.2.2",
+    "gulp-uglify": "^1.5.4",
+    "harmonize": "^1.4.4",
+    "jest-cli": "^13.2.3",
+    "jquery": "^3.1.0",
+    "jsdom": "^9.4.1",
+    "mocha": "^2.5.3",
+    "react": "^15.2.1",
+    "react-addons-test-utils": "^15.2.1",
+    "react-dom": "^15.2.1",
+    "react-fetch": "0.0.9",
+    "react-notification-system": "^0.2.7",
+    "react-skylight": "^0.4.0",
+    "socket.io-client": "^1.4.8",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.7.0"
+  },
+  "jest": {
+    "testFileExtensions": [
+      "js"
+    ],
+    "unmockedModulePathPatterns": [
+      "./node_modules/react/"
+    ]
+  }
+}
