@@ -1,5 +1,5 @@
 import React from 'react'
-import InputError from './InputError';
+/*import InputError from './InputError';*/
 
 export default class TextInput extends React.Component {
   constructor(props) {
@@ -94,10 +94,7 @@ export default class TextInput extends React.Component {
           onBlur={this.handleBlur}
           value={this.state.value}
           id={this.props.id} />
-      
-        <InputError 
-          visible={this.state.errorVisible} 
-          errorMessage={this.state.errorMessage} />
+
       </div>
     );
   }
