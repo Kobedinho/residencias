@@ -25,3 +25,7 @@ div.keyboard div.delete{
 div.keyboard div.clear{
 	background-color: grey;
 }
+button {
+	background: #1112ff;
+}
+
