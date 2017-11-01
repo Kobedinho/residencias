@@ -3,17 +3,15 @@
     "media": {
       "url": "{{static_url}}/C:karinaproyecto/merxbp.jpg",
       "caption": "MERXBP"
-
     },
-    "events":[
+    "events": [
       {
         "media": {
-          "url":"{{static_url}}/C:karinaproyecto/reunion.jpg",
-          "caption":"reunion",
-          "credit":"usuario"
-
+          "url": "{{static_url}}/C:karinaproyecto/reunion.jpg",
+          "caption": "reunion",
+          "credit": "usuario"
         },
-        "start_date":{
+        "start_date": {
           "month": "2",
           "day": "5",
           "year": "2017"
@@ -21,7 +19,6 @@
         "text": {
           "headline": "Reuniones",
           "text": "<p> Reuniones relizadas</p> "
-
         }
       },
       {
@@ -30,39 +27,34 @@
           "caption": "llamadas",
           "credit": "llamadas "
         },
-        "start_date":{
+        "start_date": {
           "month": "2",
           "day": "5",
           "year": "2017",
           "hour": "1:30"
         },
-
-        "text":{
+        "text": {
           "headeline": "llamadas ",
-          "text": "llamadas realizadas",
-
+          "text": "llamadas realizadas"
         }
       },
       {
         "media": {
-          "url":"{{static_url}}/C:karinaproyecto/tarea.jpg",
+          "url": "{{static_url}}/C:karinaproyecto/tarea.jpg",
           "caption": "tarea",
           "credit": "tarea asignada"
         },
-        "start_date":{
+        "start_date": {
           "month": "2",
           "day": "5",
           "year": "2017",
           "hour": "1:30"
         },
-        "text":{
+        "text": {
           "headeline": "tareas ",
           "text": "tareas asignadas"
-
         }
-
-      },
       }
+    ]
   }
-      ]
 }
