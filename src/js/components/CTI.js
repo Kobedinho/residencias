@@ -14,29 +14,14 @@ export  default  class CTI extends  React.Component{
         }
         this._getCaller = this._getCaller.bind(this);
     }
-    render(){
-        var todo = [];
-        if(!$.isEmptyObject(this.state.callers)){
-            for(var key in this.state.callers){
-                todo.push(<Caller key={key} caller={this.state.callers[key]}/>);
-            }
-            return(
-                <div id="CallerList" className="row">
-                    <ul id="caller-list" className="row">{todo}</ul>
-                </div>
-            )
-        }
-        else{
-            return(
-                <div id="CallerList" className="row">
-                    <ul id="caller-list" className="row"><li><span className="glyphicon glyphicon-warning-sign"></span>
-                        Error.....</li></ul>
-
-                </div>
-            )
-        }
+    componentDidMount()
+    {
+        var Timeline1=[];
+        debugger;
+        Timeline1 = new TL.Timeline('timeline-embed',Timeline1);
 
     }
+
     _getCaller()
     {
         this.setState({callers: Historial._getCaller()});
@@ -48,42 +33,56 @@ export  default  class CTI extends  React.Component{
 
 
 
-    render(){
-        return <div className="row">
-            <div className="col-lg-6">
-                <div className="input-group">
-                    <input type="text" className="form-control" placeholder="Search for..."/>
-                    <span className="input-group-btn">
-        <button className="btn btn-default" type="button"><span className="glyphicon glyphicon-search"></span></button>
-      </span>
+    render()
+        {
+
+            return (
+                <div className="row">
+                    <div className="row">
+                    <div className="col-md-8">
+                        <div className="input-group ">
+                            <input type="text" className="form-control" placeholder="search" aria-describedby="basic-addon2"/>
+                            <span className="input-group-addon glyphicon glyphicon-search " id="basic-addon2" > </span>
+                        </div>
+                    </div>
+
+
+
+      <div className="col-md-2">
+                        <div> 1:20 </div>
+                    </div>
+                    <div className="col-md-1">
+                        <span className="glyphicon glyphicon-earphone"></span>
+                    </div>
+                    <div className="col-md-1">
+
+                    </div>
+
+
                 </div>
-                <span className="glyphicon glyphicon-earphone" ></span>
-
-                <br />
-
-            </div>
-            <br/>
-
-            <CallerList  todo="C"/>
-            <br />
-            <div className="input-group-btn">
-
-                <input  type="text" className="form-control"  placeholder="Titulo"aria-describedby="sizing-addon1"/>
-            </div>
-            <br/>
-            <br />
-            <div className="item">
-
-                <textarea className="comentarios" placeholder="Detalles"rows="10" cols="40"></textarea>
-                <button className="btn-primary" type="button">Terminar</button>
-            </div>
-            <br/>
-            <StatusBar vista="m"/>
+                    <CallerList  todo="C"/>
+                    <br />
+                    <div className="row">
+                        <div id='timeline-embed' style={{width: '200%', height:'100px', overflow:'auto', }}></div>
 
 
+                    </div>
+                    <div>
+                        <input  type="text" className="form-control"  placeholder="Titulo"aria-describedby="sizing-addon1"/>
+                    </div>
+                    <br/>
+                    <br />
+                    <div className="item">
+                        <textarea className="comentarios" placeholder="Detalles"rows="10" cols="40"></textarea>
 
+                            </div>
+                            <div><button className="btn-primary" type="button"    >Terminar</button>
+                            </div>
+                    <br/>
 
-        </div>;
+                    <StatusBar vista="m"/>
+                </div>
+            )
 
     }
 
