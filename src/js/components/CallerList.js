@@ -28,7 +28,7 @@ export default  class CallerList extends  React.Component {
                 return(
                     <div id="CallerList" className="row">
                         <ul id="caller-list" className="row"><li><span className="glyphicon glyphicon-warning-sign"></span>
-                           Error.....</li></ul>
+                        </li></ul>
 
                     </div>
                 )

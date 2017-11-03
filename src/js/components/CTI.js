@@ -16,9 +16,90 @@ export  default  class CTI extends  React.Component{
     }
     componentDidMount()
     {
-        var Timeline1=[];
+        var Timeline1 ={
+            "title": {
+                "media": {
+                    "url": "http://merxbp.com/wp-content/uploads/2016/11/vector.png",
+                    "caption": "MERXBP.",
+                    "credit": "Merxbp"
+                },
+                "text": {
+                    "headline": "MERXBP 2017",
+                    "text": "lista"
+                }
+            },
+            "events": [
+                {
+                    "media": {
+                        "url": "http://merxbp.com/wp-content/uploads/2016/11/vector.png",
+                        "caption": "Reuniones.",
+                        "credit": "Reuniones-asignadas"
+                    },
+                    "start_date": {
+                        "month": "5",
+                        "day": "6",
+                        "year": "2017"
+                    },
+                    "text": {
+                        "headline": "Reuniones",
+                        "text": ""
+                    }
+                },
+                {
+                    "media": {
+                        "url": "https://image.freepik.com/iconos-gratis/llamada-entrante_318-56547.jpg",
+                        "caption": "Llamadas",
+                        "credit": "Llamadas-recividas"
+                    },
+                    "start_date": {
+                        "month": "2",
+                        "day": "11",
+                        "year": "2017"
+                    },
+                    "text": {
+                        "headline": "LLAMADAS",
+                        "text": ""
+                    }
+
+                },
+                {
+                    "media": {
+                        "url": "http://www.realautomation.biz//wp-content/uploads/2015/03/tasks.png",
+                        "caption": "Tareas",
+                        "credit": "Tareas-asignadas"
+                    },
+                    "start_date": {
+                        "month": "8",
+                        "day": "16",
+                        "year": "2017"
+                    },
+                    "text": {
+                        "headline": "TAREAS",
+                        "text": "TAREAS"
+                    }
+                },
+                {
+                    "media": {
+                        "url": "http://www.realautomation.biz//wp-content/uploads/2015/03/tasks.png",
+                        "caption": "Campañas",
+                        "credit": "campañas-asignadas"
+                    },
+                    "start_date": {
+                        "month": "4",
+                        "day": "20",
+                        "year": "2017"
+                    },
+                    "text": {
+                        "headline": "CAMPAÑAS",
+                        "text": "CAMPAÑAS"
+                    }
+
+                }
+            ]
+        }
+        var Timeline=[];
         debugger;
-        Timeline1 = new TL.Timeline('timeline-embed',Timeline1);
+        Timeline = new TL.Timeline('timeline-embed',Timeline1);
 
     }
 
