@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import  Caller from './Caller'
 import StatusBar from "./StatusBar";
-import  CallerList from "./CallerList";
+import  CallerList from "./CtiList";
 
 
 export default  class CTICaller extends  React.Component{

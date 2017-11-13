@@ -2,7 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import  Caller from './Caller'
 import StatusBar from "./StatusBar";
-import  CallerList from "./CallerList";
+import  CallerList from "./CtiList";
+import  CTIC from  "./CTIC"
 
 export  default  class CTI extends  React.Component{
     constructor(props) {
@@ -16,90 +17,39 @@ export  default  class CTI extends  React.Component{
     }
     componentDidMount()
     {
-        var Timeline1 ={
-            "title": {
-                "media": {
-                    "url": "http://merxbp.com/wp-content/uploads/2016/11/vector.png",
-                    "caption": "MERXBP.",
-                    "credit": "Merxbp"
-                },
-                "text": {
-                    "headline": "MERXBP 2017",
-                    "text": "lista"
-                }
-            },
-            "events": [
-                {
-                    "media": {
-                        "url": "http://merxbp.com/wp-content/uploads/2016/11/vector.png",
-                        "caption": "Reuniones.",
-                        "credit": "Reuniones-asignadas"
-                    },
-                    "start_date": {
-                        "month": "5",
-                        "day": "6",
-                        "year": "2017"
-                    },
-                    "text": {
-                        "headline": "Reuniones",
-                        "text": ""
-                    }
-                },
-                {
-                    "media": {
-                        "url": "https://image.freepik.com/iconos-gratis/llamada-entrante_318-56547.jpg",
-                        "caption": "Llamadas",
-                        "credit": "Llamadas-recividas"
-                    },
-                    "start_date": {
-                        "month": "2",
-                        "day": "11",
-                        "year": "2017"
-                    },
-                    "text": {
-                        "headline": "LLAMADAS",
-                        "text": ""
-                    }
+        // DOM element where the Timeline will be attached
+        var container = document.getElementById('timeline-embed');
 
-                },
-                {
-                    "media": {
-                        "url": "http://www.realautomation.biz//wp-content/uploads/2015/03/tasks.png",
-                        "caption": "Tareas",
-                        "credit": "Tareas-asignadas"
-                    },
-                    "start_date": {
-                        "month": "8",
-                        "day": "16",
-                        "year": "2017"
-                    },
-                    "text": {
-                        "headline": "TAREAS",
-                        "text": "TAREAS"
-                    }
-                },
-                {
-                    "media": {
-                        "url": "http://www.realautomation.biz//wp-content/uploads/2015/03/tasks.png",
-                        "caption": "Campañas",
-                        "credit": "campañas-asignadas"
-                    },
-                    "start_date": {
-                        "month": "4",
-                        "day": "20",
-                        "year": "2017"
-                    },
-                    "text": {
-                        "headline": "CAMPAÑAS",
-                        "text": "CAMPAÑAS"
-                    }
+        // Create a DataSet (allows two way data-binding)
+        var items = new vis.DataSet([
 
-                }
-            ]
-        }
-        var Timeline=[];
-        debugger;
-        Timeline = new TL.Timeline('timeline-embed',Timeline1);
+            {id: 1, content:'<img src="dist/imagen/tarea.jpg" style="width:14px; height:14px;">' ,title:'<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>',start: '2017-11-9'},
+            {id: 2, content: '<img src="dist/imagen/tarea.jpg" style="width:14px; height:14px;">',title:'<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>', start: '2017-11-9'},
+            {id: 3, content: '<img src="dist/imagen/reunion.jpg" style="width:14px; height:14px;">',title:'<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>', start: '2017-11-8'},
+            {id: 4, content: '<img src="dist/imagen/reunion.jpg" style="width:14px; height:14px;">', title:'<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>',start: '2017-11-8'},
+            {id: 5, content: '<img src="dist/imagen/llamada.jpg" style="width:14px; height:14px;">', title:'<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>',start: '2017-11-9'},
+            {id: 6, content: '<img src="dist/imagen/tarea.jpg" style="width:14px; height:14px;">',title:'<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>', start: '2017-11-9'},
+            {id: 7, content: '<img src="dist/imagen/llamada.jpg" style="width:14px; height:14px;">',title:'<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>' ,start: '2017-11-9'},
+            {id: 8, content: '<img src="dist/imagen/reunion.jpg" style="width:14px; height:14px;">', title:'<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>',start: '2017-11-9'},
+            {id: 9, content: '<img src="dist/imagen/llamada.jpg" style="width:14px; height:14px;">',title:'<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>', start: '2017-11-9'},
+            {id: 10, content: '<img src="dist/imagen/tarea.jpg" style="width:14px; height:14px;">', title:'<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>',start: '2017-11-9'}
+        ]);
+
+        // Configuration for the Timeline
+        var options = {
+            showCurrentTime: true,
+            start: new Date(Date.now() - 1000 * 60 * 60 * 24*3),
+            end: new Date(Date.now() + 1000 * 60 * 60 * 24 * 3),
+            min: new Date(Date.now()- 1000 *60 *60 *24*4),
+            max:new Date(Date.now() + 1000 *60 *60 *24 *4),
+            tooltip: {
+                followMouse: true
+            }
+        };
+
+        // Create a Timeline
+        var timeline = new vis.Timeline(container, items, options);
+
 
     }
 
@@ -142,12 +92,9 @@ export  default  class CTI extends  React.Component{
 
                 </div>
                     <CallerList  todo="C"/>
+                    <CTIC vista="r"/>
                     <br />
-                    <div className="row">
-                        <div id='timeline-embed' style={{width: '200%', height:'100px', overflow:'auto', }}></div>
 
-
-                    </div>
                     <div>
                         <input  type="text" className="form-control"  placeholder="Titulo"aria-describedby="sizing-addon1"/>
                     </div>
@@ -161,6 +108,7 @@ export  default  class CTI extends  React.Component{
                             </div>
                     <br/>
 
+                    <CTIC vista="r"/>
                     <StatusBar vista="m"/>
                 </div>
             )
