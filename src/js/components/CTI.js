@@ -1,38 +1,46 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import  Caller from './Caller'
+import  Caller from './CTIListCaller'
 import StatusBar from "./StatusBar";
 import  CallerList from "./CtiList";
-import  CTIC from  "./CTIC"
+import  CTIC from "./CTIDetalles"
 
-export  default  class CTI extends  React.Component{
+export  default  class CTI extends  React.Component {
     constructor(props) {
         super(props);
-        this.state = {callers: [{ type:"2455662065651",nombre:"Juan"},
-            {type:"2455662065651",nombre:"Juan"},{type:"2455662065651",nombre:"Juan"},]};
+        this.state = {
+            callers: [{type: "2455662065651", nombre: "Juan"},
+                {type: "2455662065651", nombre: "Juan"}, {type: "2455662065651", nombre: "Juan"},]
+        };
         if (this.props.callers) {
             this.state = {callers: this.props.callers};
         }
         this._getCaller = this._getCaller.bind(this);
     }
-    componentDidMount()
+
+    _getCaller() {
+        this.setState({callers: Historial._getCaller()});
+    }
+
+
+ componentDidMount()
     {
-        // DOM element where the Timeline will be attached
+        // DOM elemgient where the Timeline will be attached
         var container = document.getElementById('timeline-embed');
 
         // Create a DataSet (allows two way data-binding)
         var items = new vis.DataSet([
 
-            {id: 1, content:'<img src="dist/imagen/tarea.jpg" style="width:14px; height:14px;">' ,title:'<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>',start: '2017-11-9'},
-            {id: 2, content: '<img src="dist/imagen/tarea.jpg" style="width:14px; height:14px;">',title:'<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>', start: '2017-11-9'},
-            {id: 3, content: '<img src="dist/imagen/reunion.jpg" style="width:14px; height:14px;">',title:'<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>', start: '2017-11-8'},
-            {id: 4, content: '<img src="dist/imagen/reunion.jpg" style="width:14px; height:14px;">', title:'<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>',start: '2017-11-8'},
-            {id: 5, content: '<img src="dist/imagen/llamada.jpg" style="width:14px; height:14px;">', title:'<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>',start: '2017-11-9'},
-            {id: 6, content: '<img src="dist/imagen/tarea.jpg" style="width:14px; height:14px;">',title:'<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>', start: '2017-11-9'},
-            {id: 7, content: '<img src="dist/imagen/llamada.jpg" style="width:14px; height:14px;">',title:'<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>' ,start: '2017-11-9'},
-            {id: 8, content: '<img src="dist/imagen/reunion.jpg" style="width:14px; height:14px;">', title:'<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>',start: '2017-11-9'},
-            {id: 9, content: '<img src="dist/imagen/llamada.jpg" style="width:14px; height:14px;">',title:'<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>', start: '2017-11-9'},
-            {id: 10, content: '<img src="dist/imagen/tarea.jpg" style="width:14px; height:14px;">', title:'<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>',start: '2017-11-9'}
+            {id: 1, content:'<img src="dist/imagen/tarea.jpg" style="width:14px; height:14px;">' ,title:'<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>',start: '2017-11-15'},
+            {id: 2, content: '<img src="dist/imagen/tarea.jpg" style="width:14px; height:14px;">',title:'<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>', start: '2017-11-15'},
+            {id: 3, content: '<img src="dist/imagen/reunion.jpg" style="width:14px; height:14px;">',title:'<table border="1"><tr><td>reunion2017-11-8</td><td>realizar correciones</td></tr></table>', start: '2017-11-16'},
+            {id: 4, content: '<img src="dist/imagen/reunion.jpg" style="width:14px; height:14px;">', title:'<table border="1"><tr><td>reunion2017-11-8</td><td>realizar correciones</td></tr></table>',start: '2017-11-13'},
+            {id: 5, content: '<img src="dist/imagen/llamada.jpg" style="width:14px; height:14px;">', title:'<table border="1"><tr><td>llamada2017-11-8</td><td>realizar correciones</td></tr></table>',start: '2017-11-14'},
+            {id: 6, content: '<img src="dist/imagen/tarea.jpg" style="width:14px; height:14px;">',title:'<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>', start: '2017-11-15'},
+            {id: 7, content: '<img src="dist/imagen/llamada.jpg" style="width:14px; height:14px;">',title:'<table border="1"><tr><td>llamada2017-11-8</td><td>realizar correciones</td></tr></table>' ,start: '2017-11-15'},
+            {id: 8, content: '<img src="dist/imagen/reunion.jpg" style="width:14px; height:14px;">', title:'<table border="1"><tr><td>reunion2017-11-8</td><td>realizar correciones</td></tr></table>',start: '2017-11-14'},
+            {id: 9, content: '<img src="dist/imagen/llamada.jpg" style="width:14px; height:14px;">',title:'<table border="1"><tr><td>llamada2017-11-8</td><td>realizar correciones</td></tr></table>', start: '2017-11-14'},
+            {id: 10, content: '<img src="dist/imagen/tarea.jpg" style="width:14px; height:14px;">', title:'<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>',start: '2017-11-14'}
         ]);
 
         // Configuration for the Timeline
@@ -52,16 +60,6 @@ export  default  class CTI extends  React.Component{
 
 
     }
-
-    _getCaller()
-    {
-        this.setState({callers: Historial._getCaller()});
-    }
-
-
-
-
-
 
 
     render()
@@ -92,26 +90,22 @@ export  default  class CTI extends  React.Component{
 
                 </div>
                     <CallerList  todo="C"/>
-                    <CTIC vista="r"/>
+
                     <br />
+                    <div className="row">
 
-                    <div>
-                        <input  type="text" className="form-control"  placeholder="Titulo"aria-describedby="sizing-addon1"/>
-                    </div>
-                    <br/>
-                    <br />
-                    <div className="item">
-                        <textarea className="comentarios" placeholder="Detalles"rows="10" cols="40"></textarea>
+                        <div id='timeline-embed' style={{width: '100%', height:'200px', overflow:'auto',  }}></div>
 
-                            </div>
-                            <div><button className="btn-primary" type="button"    >Terminar</button>
-                            </div>
-                    <br/>
 
-                    <CTIC vista="r"/>
+
+                        <div >  <CTIC vista="r"/></div>
+
                     <StatusBar vista="m"/>
+
+
+
                 </div>
-            )
+                </div>)
 
     }
 

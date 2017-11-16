@@ -1,6 +1,6 @@
 import React from 'react'
 
-import  Caller from './Caller'
+import  Caller from './CTIListCaller'
 
 
 export default  class CtiList extends  React.Component {

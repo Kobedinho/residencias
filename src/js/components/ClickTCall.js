@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import  CtiKeyboard from './CtiKeyboard'
 import StatusBar from "./StatusBar";
-import Caller from  "./Caller";
+import Caller from "./CTIListCaller";
 import  CtiList from "./CtiList"
 
 

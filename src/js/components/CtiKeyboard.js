@@ -12,8 +12,19 @@ export default class CtiKeyboard extends React.Component{
         return(
 
 
-            <div className="row" style={{textAlign:'center',lineHeight:"3em",}}>
 
+
+
+
+
+
+            <div className="row" style={{textAlign:'center',lineHeight:"3em",}}>
+                <br/>
+
+                <input  type="text" className="form-control"   placeholder="numero"aria-describedby="sizing-addon1"/>
+
+
+                <br/>
                 <div className="row"  >
                     <div className="col-md-4" style={{backgroundColor:'#5c6465',}}>1</div>
                     <div className="col-md-4"  style={{backgroundColor:'#5c6465',}}>2</div>
@@ -36,9 +47,10 @@ export default class CtiKeyboard extends React.Component{
 
                 <div className="row">
 
-                    <div className="col-md-4"style={{backgroundColor:'rgb(65, 76, 78)',}}> <div> <img src='llamada-telefonica.png'/> </div> </div>
-                    <div className="col-md-4  "  style={{backgroundColor:'#5c6465',}}>0</div>
-                    <div className="col-md-4" style={{backgroundColor:'rgb(65, 76, 78)',}}> <div className="glyphicon glyphicon-remove-circle"> </div></div>
+                    <div className="col-md-4"style={{backgroundColor:'rgb(65, 76, 78)',}}>
+                        <div><img src="dist/imagen/tefeono2.png" style={{width: '20px'}} /></div> </div>
+                    <div className="col-md-4  " style={{backgroundColor:'#5c6465',}}>0</div>
+                    <div className="col-md-4" style={{backgroundColor:'rgb(65, 76, 78)',}}>  <div><img src="dist/imagen/boton-atras.png" style={{width: '20px'}} /></div></div>
                 </div>
 
                 </div>

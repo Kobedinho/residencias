@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-export default  class Caller extends React.Component{
+export default  class CTIListCaller extends React.Component{
     constructor(props){
         super(props);
         this.displayName = 'Caller';
