@@ -1,89 +1,111 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import  Caller from './Caller'
+import  Caller from './CTIListCaller'
 import StatusBar from "./StatusBar";
-import  CallerList from "./CallerList";
+import  CallerList from "./CtiList";
+import  CTIC from "./CTIDetalles"
 
-export  default  class CTI extends  React.Component{
+export  default  class CTI extends  React.Component {
     constructor(props) {
         super(props);
-        this.state = {callers: [{ type:"2455662065651",nombre:"Juan"},
-            {type:"2455662065651",nombre:"Juan"},{type:"2455662065651",nombre:"Juan"},]};
+        this.state = {
+            callers: [{type: "2455662065651", nombre: "Juan"},
+                {type: "2455662065651", nombre: "Juan"}, {type: "2455662065651", nombre: "Juan"},]
+        };
         if (this.props.callers) {
             this.state = {callers: this.props.callers};
         }
         this._getCaller = this._getCaller.bind(this);
     }
-    render(){
-        var todo = [];
-        if(!$.isEmptyObject(this.state.callers)){
-            for(var key in this.state.callers){
-                todo.push(<Caller key={key} caller={this.state.callers[key]}/>);
-            }
-            return(
-                <div id="CallerList" className="row">
-                    <ul id="caller-list" className="row">{todo}</ul>
-                </div>
-            )
-        }
-        else{
-            return(
-                <div id="CallerList" className="row">
-                    <ul id="caller-list" className="row"><li><span className="glyphicon glyphicon-warning-sign"></span>
-                        Error.....</li></ul>
 
-                </div>
-            )
-        }
-
-    }
-    _getCaller()
-    {
+    _getCaller() {
         this.setState({callers: Historial._getCaller()});
     }
 
 
+ componentDidMount()
+    {
+        // DOM elemgient where the Timeline will be attached
+        var container = document.getElementById('timeline-embed');
+
+        // Create a DataSet (allows two way data-binding)
+        var items = new vis.DataSet([
+
+            {id: 1, content:'<img src="dist/imagen/tarea.jpg" style="width:14px; height:14px;">' ,title:'<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>',start: '2017-11-15'},
+            {id: 2, content: '<img src="dist/imagen/tarea.jpg" style="width:14px; height:14px;">',title:'<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>', start: '2017-11-15'},
+            {id: 3, content: '<img src="dist/imagen/reunion.jpg" style="width:14px; height:14px;">',title:'<table border="1"><tr><td>reunion2017-11-8</td><td>realizar correciones</td></tr></table>', start: '2017-11-16'},
+            {id: 4, content: '<img src="dist/imagen/reunion.jpg" style="width:14px; height:14px;">', title:'<table border="1"><tr><td>reunion2017-11-8</td><td>realizar correciones</td></tr></table>',start: '2017-11-13'},
+            {id: 5, content: '<img src="dist/imagen/llamada.jpg" style="width:14px; height:14px;">', title:'<table border="1"><tr><td>llamada2017-11-8</td><td>realizar correciones</td></tr></table>',start: '2017-11-14'},
+            {id: 6, content: '<img src="dist/imagen/tarea.jpg" style="width:14px; height:14px;">',title:'<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>', start: '2017-11-15'},
+            {id: 7, content: '<img src="dist/imagen/llamada.jpg" style="width:14px; height:14px;">',title:'<table border="1"><tr><td>llamada2017-11-8</td><td>realizar correciones</td></tr></table>' ,start: '2017-11-15'},
+            {id: 8, content: '<img src="dist/imagen/reunion.jpg" style="width:14px; height:14px;">', title:'<table border="1"><tr><td>reunion2017-11-8</td><td>realizar correciones</td></tr></table>',start: '2017-11-14'},
+            {id: 9, content: '<img src="dist/imagen/llamada.jpg" style="width:14px; height:14px;">',title:'<table border="1"><tr><td>llamada2017-11-8</td><td>realizar correciones</td></tr></table>', start: '2017-11-14'},
+            {id: 10, content: '<img src="dist/imagen/tarea.jpg" style="width:14px; height:14px;">', title:'<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>',start: '2017-11-14'}
+        ]);
+
+        // Configuration for the Timeline
+        var options = {
+            showCurrentTime: true,
+            start: new Date(Date.now() - 1000 * 60 * 60 * 24*3),
+            end: new Date(Date.now() + 1000 * 60 * 60 * 24 * 3),
+            min: new Date(Date.now()- 1000 *60 *60 *24*4),
+            max:new Date(Date.now() + 1000 *60 *60 *24 *4),
+            tooltip: {
+                followMouse: true
+            }
+        };
+
+        // Create a Timeline
+        var timeline = new vis.Timeline(container, items, options);
+
+
+    }
+
+
+    render()
+        {
+
+            return (
+                <div className="row">
+                    <div className="row">
+                    <div className="col-md-8">
+                        <div className="input-group ">
+                            <input type="text" className="form-control" placeholder="search" aria-describedby="basic-addon2"/>
+                            <span className="input-group-addon glyphicon glyphicon-search " id="basic-addon2" > </span>
+                        </div>
+                    </div>
 
 
 
+      <div className="col-md-2">
+                        <div> 1:20 </div>
+                    </div>
+                    <div className="col-md-1">
+                        <span className="glyphicon glyphicon-earphone"></span>
+                    </div>
+                    <div className="col-md-1">
+
+                    </div>
 
 
-    render(){
-        return <div className="row">
-            <div className="col-lg-6">
-                <div className="input-group">
-                    <input type="text" className="form-control" placeholder="Search for..."/>
-                    <span className="input-group-btn">
-        <button className="btn btn-default" type="button"><span className="glyphicon glyphicon-search"></span></button>
-      </span>
                 </div>
-                <span className="glyphicon glyphicon-earphone" ></span>
+                    <CallerList  todo="C"/>
 
-                <br />
+                    <br />
+                    <div className="row">
 
-            </div>
-            <br/>
-
-            <CallerList  todo="C"/>
-            <br />
-            <div className="input-group-btn">
-
-                <input  type="text" className="form-control"  placeholder="Titulo"aria-describedby="sizing-addon1"/>
-            </div>
-            <br/>
-            <br />
-            <div className="item">
-
-                <textarea className="comentarios" placeholder="Detalles"rows="10" cols="40"></textarea>
-                <button className="btn-primary" type="button">Terminar</button>
-            </div>
-            <br/>
-            <StatusBar vista="m"/>
+                        <div id='timeline-embed' style={{width: '100%', height:'200px', overflow:'auto',  }}></div>
 
 
 
+                        <div >  <CTIC vista="r"/></div>
 
-        </div>;
+                    <StatusBar vista="m"/>
+
+
+
+                </div>
+                </div>)
 
     }
 

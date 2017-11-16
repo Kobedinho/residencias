@@ -5,8 +5,8 @@ import ReactTestUtils from 'react-addons-test-utils';
 import test_helper from '../../../test_helper';
 import ServerConnection from '../../../../src/js/util/ServerConnection';
 import Call from '../../../../src/js/components/Call';
-import Caller from '../../../../src/js/components/Caller';
-import CallerList from '../../../../src/js/components/CallerList';
+import Caller from '../../../../src/js/components/CTIListCaller';
+import CallerList from '../../../../src/js/components/CtiList';
 
 describe('Call_test', () => {
 	it('should render a component (Call) ', () => {
