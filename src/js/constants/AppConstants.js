@@ -14,5 +14,6 @@ module.exports = {
     APP_HTML_FORM:'APP_HTML_FORM',
     APP_SAVE_RECORD:'APP_SAVE_RECORD',
     APP_LOGIN_FORM:'APP_LOGIN_FORM',
-    APP_URL_API:'http://localhost:8000/api/login/'
+    APP_URL_API:'http://localhost:8000/api/login/',
+	APP_CHANGE_VIEW:'APP_CHANGE_VIEW'
 };

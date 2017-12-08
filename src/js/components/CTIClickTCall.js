@@ -2,15 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import  CtiKeyboard from './CtiKeyboard'
 import StatusBar from "./StatusBar";
-import Caller from "./CTIListCaller";
+import Caller from "./CTICaller";
 import  CtiList from "./CtiList"
 
 
 
 
-export default class ClickTCall extends React.Component {
+export default class CTIClickTCall extends React.Component {
     constructor(props) {
         super(props);
+
 
     }
         render()
@@ -19,14 +20,12 @@ export default class ClickTCall extends React.Component {
             return (
                 <div>
 
-
-
                     <CtiList a="q"/>
 
 
                     <CtiKeyboard v="m"/>
 
-                     <StatusBar b="a"/>
+
 
 
 

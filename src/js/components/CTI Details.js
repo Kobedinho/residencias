@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 
 
 
-export default class CTIDetalles extends  React.Component{
+export default class CTIDetails extends  React.Component{
     constructor(props){
         super(props);
     }

@@ -37,7 +37,7 @@ import ServerConnection from '../util/ServerConnection';
 		var text;
 		switch(action.actionType) {
 		    case AppConstants.APP_LOGIN:
-		    	this.socket.emit('login', action.text);
+		    	/*this.socket.emit('login', action.text);
 		    	var self = this;
 		    	this.socket.on('login:reponse', function (data) {
 					self.loginData = data;
@@ -46,7 +46,10 @@ import ServerConnection from '../util/ServerConnection';
         			}
         			console.log("LoginStore -- before emit -- is logged ",this.isLogged);
 					self.emitChange();
-				});
+				});*/
+                console.log("LoginStore -- before emit -- is logged ",this.isLogged);
+		    	this.isLogged =true;
+		    	this.emitChange();
 		      	break;
 		    case AppConstants.APP_LOGOUT:
 		    	this.loginData={};

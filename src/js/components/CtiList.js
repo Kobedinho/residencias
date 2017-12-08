@@ -1,6 +1,6 @@
 import React from 'react'
 
-import  Caller from './CTIListCaller'
+import  Caller from './CTICaller'
 
 
 export default  class CtiList extends  React.Component {
@@ -32,8 +32,8 @@ export default  class CtiList extends  React.Component {
             else{
                 return(
                     <div id="CtiList" className="row">
-                        <ul id="caller-list" className="row"><li><span className="glyphicon glyphicon-warning-sign"></span>
-                        </li></ul>
+
+
 
 
 
