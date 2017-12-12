@@ -1,8 +1,9 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import  Caller from './Caller'
 
-export default  class CallerList extends  React.Component {
+import  Caller from './CTIListCaller'
+
+
+export default  class CtiList extends  React.Component {
 
     constructor(props) {
     super(props);
@@ -21,14 +22,20 @@ export default  class CallerList extends  React.Component {
                 return(
                     <div id="CallerList" className="row">
                         <ul id="caller-list" className="row">{todo}</ul>
+
+
+
                     </div>
+
                 )
             }
             else{
                 return(
-                    <div id="CallerList" className="row">
+                    <div id="CtiList" className="row">
                         <ul id="caller-list" className="row"><li><span className="glyphicon glyphicon-warning-sign"></span>
-                           Error.....</li></ul>
+                        </li></ul>
+
+
 
                     </div>
                 )

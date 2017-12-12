@@ -29,3 +29,9 @@ button {
 	background: #1112ff;
 }
 
+div.tl-storyslider{
+	display: none;
+}
+div.tl-menubar {
+	top: 5px !important;
+}

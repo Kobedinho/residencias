@@ -42,6 +42,8 @@ gulp.task('build', function(argument) {
 gulp.task('copy', function (argument) {
 	gulp.src('src/css/*.*')
 		.pipe(gulp.dest('dist/css'));
+    gulp.src('src/imagen/*.*')
+        .pipe(gulp.dest('dist/imagen'));
 	gulp.src('src/js/vendor/*.*')
 		.pipe(gulp.dest('dist/js'));
 	gulp.src('src/fonts/*.*')

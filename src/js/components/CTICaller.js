@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import  Caller from './Caller'
+import  Caller from './CTIListCaller'
 import StatusBar from "./StatusBar";
-import  CallerList from "./CallerList";
+import  CallerList from "./CtiList";
 
 
 export default  class CTICaller extends  React.Component{
@@ -15,6 +15,7 @@ export default  class CTICaller extends  React.Component{
         }
         this._getCaller = this._getCaller.bind(this);
     }
+
     render(){
         var todo = [];
         if(!$.isEmptyObject(this.state.callers)){

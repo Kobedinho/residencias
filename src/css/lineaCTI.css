@@ -1,0 +1,37 @@
+/* Stilos para componente c2c*/
+
+input {
+	width: 100%
+}
+
+div.keyboard {
+	border: solid 1em blue;
+}
+
+div.keyboard div{
+	border: solid 1em black;
+	text-align: center;
+	font-weight: bold;
+}
+
+div.keyboard div.call{
+	background-color: green;
+}
+
+div.keyboard div.delete{
+	background-color: red;
+}
+
+div.keyboard div.clear{
+	background-color: grey;
+}
+button {
+	background: #1112ff;
+}
+
+div.tl-storyslider{
+	display: none;
+}
+div.tl-menubar {
+	top: 5px !important;
+}
