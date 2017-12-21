@@ -35,7 +35,7 @@ class CallStore extends EventEmitter{
     }
     handleActions(action){
         switch(action.actionType) {
-            case AppConstants.APP_CHANGE_VIEW:
+            case AppConstants.APP_CHANGE_TO_CALL:
                 console.log("CallStore -- before emit -- is called ",this.isCalled);
                 this.view="CTIClickTCall" ;
                 this.isCalled=true;

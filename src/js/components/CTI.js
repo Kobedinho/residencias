@@ -6,7 +6,7 @@ import LoginStore from "../store/LoginStore";
 import CallStore from "../store/CallStore";
 import HistorialStore from "../store/HistorialStore";
 import StatusBar from './StatusBar'
-
+import SocketStore from"../store/SocketStore";
 import CTICall from "./CTI-Call";
 import CTIClickTCall from "./CTIClickTCall";
 
@@ -18,17 +18,17 @@ export default class CTI extends React.Component{
          this.state={"logged":false,view:"Historial",};
         this.handleListener=this.handleListener.bind(this);
         this.handleCallListener=this.handleCallListener.bind(this);
-        //this.handlehistorialListener=this.handlehistorialListener.bind(this);
+        this.handlehistorialListener=this.handlehistorialListener.bind(this);
     }
     componentDidMount(){
         LoginStore.addChangeListener(this.handleListener);
         CallStore.addChangeListener(this.handleCallListener);
-        //HistorialStore.addChangeListener(this.handlehistorialListener)
+        HistorialStore.addChangeListener(this.handlehistorialListener)
     }
     componentWillUnmount(){
         LoginStore.removeChangeListener(this.handleListener);
         CallStore.removeChangeListener(this.handleCallListener);
-        //HistorialStore.removeChangeListener(this.handlehistorialListener);
+        HistorialStore.removeChangeListener(this.handlehistorialListener);
 
     }
     handleListener(){
@@ -38,24 +38,22 @@ export default class CTI extends React.Component{
     }
 
     handleCallListener(hdl){
-        console.log("CTI -- before emit -- is called ",hdl);
+        console.log("CTI -- handleCallListener -- is called ",hdl);
         this.setState({"view":CallStore.view});
-        console.log("CTI -- before emit -- is called ",hdl);
+        console.log("CTI -- handleCallListener -- is called ",hdl);
 
 
     }
-    /*handlehistorialListener(){
-        console.log("CTI -- before emit -- is historia ",HistoriaStore.view);
-        this.setState({"view":HistoriaStore.view});
-        console.log("CTI -- before emit -- is historia ",HistoriaStore.view);
-
-
-    }*/
+    handlehistorialListener(){
+        console.log("CTI -- before emit -- is historia ",HistorialStore.view);
+        this.setState({"view":HistorialStore.view});
+        console.log("CTI -- before emit -- is historia ",HistorialStore.view);
+    }
 
 
 
     render(){
-
+    console.log(this.state.view)
       if (this.state.logged){
           switch(this.state.view){
               case "CTI-Call": { return(

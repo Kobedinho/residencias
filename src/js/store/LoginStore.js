@@ -29,24 +29,15 @@ import ServerConnection from '../util/ServerConnection';
 	_getLoginData(){
 		return this.loginData;
 	}
-	_isLogged(){
-		console.log("LoginStore is logged ",this.isLogged);
-		return this.isLogged;
-	}
+		_isLogged(){
+			console.log("LoginStore is logged ",this.isLogged);
+			return this.isLogged;
+		}
 	handleActions(action){
 		var text;
 		switch(action.actionType) {
 		    case AppConstants.APP_LOGIN:
-		    	/*this.socket.emit('login', action.text);
-		    	var self = this;
-		    	this.socket.on('login:reponse', function (data) {
-					self.loginData = data;
-					if( data.status == 200 && data.sugar_status == 200 ){
-            			self.isLogged = true;
-        			}
-        			console.log("LoginStore -- before emit -- is logged ",this.isLogged);
-					self.emitChange();
-				});*/
+
                 console.log("LoginStore -- before emit -- is logged ",this.isLogged);
 		    	this.isLogged =true;
 		    	this.emitChange();
@@ -61,7 +52,7 @@ import ServerConnection from '../util/ServerConnection';
 }
 
 const loginStore = new LoginStore;
-// Register callback to handle all updates
+
 AppDispatcher.register(loginStore.handleActions.bind(loginStore));
 
 export default loginStore;

@@ -7,7 +7,7 @@ var CallActions = {
     call: function(data) {
         console.log('CallActions-KeyboardActions :updateSubject:  ',data);
         AppDispatcher.dispatch({
-            actionType: AppConstants.APP_CHANGE_VIEW,
+            actionType: AppConstants.APP_CHANGE_TO_CALL,
             text: data
         })
     },

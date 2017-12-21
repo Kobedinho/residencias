@@ -73,5 +73,9 @@
     "unmockedModulePathPatterns": [
       "./node_modules/react/"
     ]
+  },
+  "dependencies": {
+    "internal": "^1.0.8",
+    "types": "^0.1.1"
   }
 }

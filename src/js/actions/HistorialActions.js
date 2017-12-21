@@ -7,7 +7,7 @@ var HistorialActions = {
     historial: function(data) {
         console.log('HistorialActions-KeyboardActions :updateSubject:  ',data);
         AppDispatcher.dispatch({
-            actionType: AppConstants.APP_CHANGE_VIEW,
+            actionType: AppConstants.APP_CHANGE_TO_HISTORIAL,
             text: data
         })
     },

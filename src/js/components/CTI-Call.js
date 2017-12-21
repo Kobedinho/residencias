@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import  Caller from './CTICaller'
 import StatusBar from "./StatusBar";
 import  CallerList from "./CtiList";
-import  CTIC from "./CTI Details"
+
 import CTISearch from "./CTISearch";
 import CTITimeline from "./CTITimeline"
 

@@ -33,10 +33,13 @@ class HistorialStore extends EventEmitter{
         console.log("HistorialStore is historial ",this.isHistorial);
         return this.isHistorial;
     }
+
     handleActions(action){
+        console.log("accion "+ action.actionType);
         switch(action.actionType) {
-            case AppConstants.APP_CHANGE_VIEW:
-                console.log("HistorialStore-- before emit -- is historial ",this.isHistorial);
+            case AppConstants.APP_CHANGE_TO_HISTORIAL:
+                console.log("HistorialStore--  -- is historial "+ this.isHistorial);
+                console.log("informacion "+ this.isHistorial);
                 this.view="Historial" ;
                 this.isHistorial=true;
                 this.emitChange();
