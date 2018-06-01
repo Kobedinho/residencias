@@ -8,6 +8,11 @@ export default  class CTICaller extends React.Component{
 
 
     }
+    componentDidMount(){
+        $(this.refs.info).tooltip();
+
+
+    }
     render(){
         var caller =this.props.caller;
         var style ={marginLeft:"1em"};
@@ -15,11 +20,12 @@ export default  class CTICaller extends React.Component{
         return(
 
             <div className="row">
-            <div className="col-md-2"><input type="radio"/></div>
+            <div className="col-md-2"><input name="selecion" type="radio" value="a" /></div>
             <div className="col-md-2"><span className="glyphicon glyphicon-user"></span></div>
             <div className="col-md-6"> {caller.nombre}    {caller.type}</div>
-            <div className="col-md-2"> <span className="glyphicon glyphicon-info-sign"></span> </div>
+            <div className="col-md-2"> <span className="glyphicon glyphicon-info-sign" ref="info" href="#" data-toggle="tooltip" data-placement="top" title="Soporte MERXBP"></span> </div>
             <span style={style} className="list"></span>
+
             <div className="row">
 
                 <div className="row">

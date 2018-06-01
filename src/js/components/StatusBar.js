@@ -11,8 +11,15 @@ export default class StatusBar extends React.Component {
 
         this._onIconClick = this._onIconClick.bind(this);
 
-    }
 
+    }
+    componentDidMount(){
+        $(this.refs.info).tooltip();
+        $(this.refs.sin).tooltip();
+
+
+
+    }
     _onIconClick(val){
         console.log(val);
         if(val=="Call"){
@@ -27,14 +34,31 @@ export default class StatusBar extends React.Component {
 
     render(){
 
-            if (this.state.vista=="CTICallList")
-                return(<div className="row"> <span className="glyphicon glyphicon-question-sign"></span> <span className="glyphicon glyphicon-info-sign"></span>   </div>)
+            if (this.state.vista=="Login")
+                return(<div className="row"> <span className="glyphicon glyphicon-question-sign"
+                       href="#" data-toggle="tooltip" data-placement="top" title="Action2.0 fabricante MERXBP todos los derechos reservados" >
+
+                </span>
+                    <span className="glyphicon glyphicon-info-sign"
+                     href="#" data-toggle="tooltip" data-placement="top" title="Soporte MERXBP">
+
+                    </span>   </div>)
             else
-               return( <div className="row"> <span id="home" className="glyphicon glyphicon-home"> </span>
-                   <span  id="historial" onClick={this._onIconClick.bind(this,'Historial')} className="glyphicon glyphicon glyphicon-dashboard"></span>
-                   <span id="question" className="glyphicon glyphicon-question-sign"  href="#" data-toggle="tooltip" data-placement="top" title="Action 2.0 " ></span>
-                   <span id="call" onClick={this._onIconClick.bind(this,'Call')}  className="glyphicon glyphicon glyphicon-phone-alt"></span>
-                   <span id="sign" className="glyphicon glyphicon-info-sign" title="soporte MERXBP"  ></span> </div>)
+
+               return( <div className="row">
+                   <span  id="historial" onClick={this._onIconClick.bind(this,'Historial')} className="glyphicon glyphicon glyphicon-dashboard">
+
+                   </span>
+                   <span  className="glyphicon glyphicon-question-sign" ref="sin" href="#" data-toggle="tooltip" data-placement="top" title="Action2.0 fabricante MERXBP todos los derechos reservados" >
+
+                   </span >
+
+                   <span id="call" onClick={this._onIconClick.bind(this,'Call')}  className="glyphicon glyphicon glyphicon-phone-alt">
+
+                   </span>
+                   <span id="sign" className="glyphicon glyphicon-info-sign" ref="info" href="#" data-toggle="tooltip" data-placement="top" title="Soporte MERXBP"  >
+
+                   </span> </div>)
 
 
     }

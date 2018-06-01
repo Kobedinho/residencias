@@ -6,7 +6,7 @@ var SocketActions ={
     socket:function (data) {
         console.log('SocketActions-KeyboardActions :updateSubject:  ',data);
         AppDispatcher.dispatch({
-            actionType: AppConstants.APP_RINGING,
+            actionType: AppConstants.APP_CHANGE_TO_SOCKET,
             text: data
         })
 

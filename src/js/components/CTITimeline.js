@@ -20,6 +20,7 @@ export  default  class CTITimeline extends  React.Component {
     }
 
 
+
     componentDidMount() {
         // DOM elemgient where the Timeline will be attached
         var container = document.getElementById('timeline-embed');
@@ -30,62 +31,62 @@ export  default  class CTITimeline extends  React.Component {
             {
                 id: 1,
                 content: '<img src="dist/imagen/tarea.jpg" style="width:14px; height:14px;">',
-                title: '<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>',
-                start: '2017-11-29'
+                title: '<table border="1"><tr><td>Tarea2018-01-27-</td><td>realizar correciones</td></tr></table>',
+                start:'Tarea 2018-01-27'
             },
             {
                 id: 2,
                 content: '<img src="dist/imagen/tarea.jpg" style="width:14px; height:14px;">',
-                title: '<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>',
-                start: '2017-11-28'
+                title: '<table border="1"><tr><td>Tarea2018-01-25</td><td>realizar correciones</td></tr></table>',
+                start: 'Tarea 2018-01-25'
             },
             {
                 id: 3,
                 content: '<img src="dist/imagen/reunion.jpg" style="width:14px; height:14px;">',
-                title: '<table border="1"><tr><td>reunion2017-11-8</td><td>realizar correciones</td></tr></table>',
-                start: '2017-11-27'
+                title: '<table border="1"><tr><td>Tarea2018-01-23</td><td>realizar correciones</td></tr></table>',
+                start: 'Tarea2018-01-23'
             },
             {
                 id: 4,
                 content: '<img src="dist/imagen/reunion.jpg" style="width:14px; height:14px;">',
-                title: '<table border="1"><tr><td>reunion2017-11-8</td><td>realizar correciones</td></tr></table>',
-                start: '2017-11-29'
+                title: '<table border="1"><tr><td>Tarea2018-01-22</td><td>realizar correciones</td></tr></table>',
+                start: 'Tarea2018-01-22'
             },
             {
                 id: 5,
                 content: '<img src="dist/imagen/llamada.jpg" style="width:14px; height:14px;">',
-                title: '<table border="1"><tr><td>llamada2017-11-8</td><td>realizar correciones</td></tr></table>',
-                start: '2017-11-28'
+                title: '<table border="1"><tr><td>Tarea2018-01-26</td><td>realizar correciones</td></tr></table>',
+                start: 'Tarea2018-01-26'
             },
             {
                 id: 6,
                 content: '<img src="dist/imagen/tarea.jpg" style="width:14px; height:14px;">',
-                title: '<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>',
-                start: '2017-11-28'
+                title: '<table border="1"><tr><td>Tarea2018-01-23</td><td>realizar correciones</td></tr></table>',
+                start: 'Tarea2018-01-23'
             },
             {
                 id: 7,
                 content: '<img src="dist/imagen/llamada.jpg" style="width:14px; height:14px;">',
-                title: '<table border="1"><tr><td>llamada2017-11-8</td><td>realizar correciones</td></tr></table>',
-                start: '2017-11-29'
+                title: '<table border="1"><tr><td>Tarea2018-01-26</td><td>realizar correciones</td></tr></table>',
+                start: 'Tarea2018-01-26'
             },
             {
                 id: 8,
                 content: '<img src="dist/imagen/reunion.jpg" style="width:14px; height:14px;">',
-                title: '<table border="1"><tr><td>reunion2017-11-8</td><td>realizar correciones</td></tr></table>',
-                start: '2017-11-29'
+                title: '<table border="1"><tr><td>Tarea2018-01-21</td><td>realizar correciones</td></tr></table>',
+                start: 'Tarea2018-01-21'
             },
             {
                 id: 9,
                 content: '<img src="dist/imagen/llamada.jpg" style="width:14px; height:14px;">',
-                title: '<table border="1"><tr><td>llamada2017-11-8</td><td>realizar correciones</td></tr></table>',
-                start: '2017-11-28'
+                title: '<table border="1"><tr><td>Tarea2018-01-22</td><td>realizar correciones</td></tr></table>',
+                start: 'Tarea2018-01-22'
             },
             {
                 id: 10,
                 content: '<img src="dist/imagen/tarea.jpg" style="width:14px; height:14px;">',
-                title: '<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>',
-                start: '2017-11-29'
+                title: '<table border="1"><tr><td>Tarea2018-01-22</td><td>realizar correciones</td></tr></table>',
+                start: 'Tarea2018-01-22'
             }
         ]);
 

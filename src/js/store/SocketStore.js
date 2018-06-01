@@ -1,4 +1,4 @@
-import AppDispatcher from '../dispatcher/AppDispatcher';
+/*import AppDispatcher from '../dispatcher/AppDispatcher';
 import {EventEmitter} from 'events';
 import AppConstants from '../constants/AppConstants';
 import ServerConnection from '../util/ServerConnection';
@@ -49,3 +49,4 @@ export  default socketStore;
 
 
 
+*/

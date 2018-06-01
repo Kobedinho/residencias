@@ -14,15 +14,11 @@ class HistorialStore extends EventEmitter{
     emitChange() {
         this.emit(this.CHANGE_EVENT);
     }
-    /**
-     * @param {function} callback
-     */
+
     addChangeListener(callback) {
         this.on(this.CHANGE_EVENT, callback);
     }
-    /**
-     * @param {function} callback
-     */
+
     removeChangeListener(callback) {
         this.removeListener(this.CHANGE_EVENT, callback);
     }

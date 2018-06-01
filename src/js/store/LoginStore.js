@@ -3,6 +3,7 @@ import {EventEmitter} from 'events';
 import AppConstants from '../constants/AppConstants';
 import ServerConnection from '../util/ServerConnection';
 
+
  class LoginStore extends EventEmitter{
 
 	constructor(){
@@ -37,10 +38,25 @@ import ServerConnection from '../util/ServerConnection';
 		var text;
 		switch(action.actionType) {
 		    case AppConstants.APP_LOGIN:
+                this.socket.emit('login', action.text);
+                var self = this;
+                this.socket.on('login:reponse', function (data) {
+                    self.loginData = data;
+                    if( data.status == 200 && data.sugar_status == 200 ){
+                        self.isLogged = true;
+                    }
+                    console.log("LoginStore -- before emit -- is logged ",this.isLogged);
+                    self.emitChange();
+                });
+                this.socket.emit('disconnect',action.text);
+				var self =this;
+				this.socket.on('disconnect', function (data)
+				{
+					self.isLogged=data;
 
-                console.log("LoginStore -- before emit -- is logged ",this.isLogged);
+				})
+
 		    	this.isLogged =true;
-		    	this.emitChange();
 		      	break;
 		    case AppConstants.APP_LOGOUT:
 		    	this.loginData={};

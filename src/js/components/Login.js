@@ -12,7 +12,7 @@ export default class Login extends React.Component {
 		this.pbxUserKey = '83ba3294-350d-11e4-bf3a-2ac56a401232';
 		this._onLogin = this._onLogin.bind(this);
 
-		this.state = {url: '', username:'', password: ''};
+		this.state = {url: '', username:'', password: '',key: this.pbxUserKey};
 
 	}
 
@@ -51,7 +51,7 @@ export default class Login extends React.Component {
 					</div>
 			  	</div>
 			</form>
-			<StatusBar vista="m"/>
+			<StatusBar vista="Login"/>
 
 				</div>
 		)
