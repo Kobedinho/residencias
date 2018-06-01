@@ -1,11 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import StatusBar from "./StatusBar";
-import  CallerList from "./CtiList";
 
 
 
-export default class CtiHistorial extends React.Component {
+
+export default class CTICallList extends React.Component {
 
     constructor(props) {
         super(props);
@@ -27,11 +26,9 @@ export default class CtiHistorial extends React.Component {
 
             </div>
 
-            <br/>
 
 
-            <CallerList  todo="C"/>
-            <StatusBar vista="m"/>
+
         </div>
 
     }

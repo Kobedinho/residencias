@@ -1,116 +1,127 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import  Caller from './CTIListCaller'
-import StatusBar from "./StatusBar";
-import  CallerList from "./CtiList";
-import  CTIC from "./CTIDetalles"
+import Historial from "./CTIHistorial";
+import Login from "./Login";
+import LoginStore from "../store/LoginStore";
+import CallStore from "../store/CallStore";
+import HistorialStore from "../store/HistorialStore";
+import StatusBar from './StatusBar'
+import SocketStore from"../store/SocketStore";
+import CTICall from "./CTICall";
+import CTIClickTCall from "./CTIClickTCall";
+import CallingStore from "../store/CallingStore";
 
-export  default  class CTI extends  React.Component {
-    constructor(props) {
+
+
+export default class CTI extends React.Component{
+    constructor (props){
         super(props);
-        this.state = {
-            callers: [{type: "2455662065651", nombre: "Juan"},
-                {type: "2455662065651", nombre: "Juan"}, {type: "2455662065651", nombre: "Juan"},]
-        };
-        if (this.props.callers) {
-            this.state = {callers: this.props.callers};
-        }
-        this._getCaller = this._getCaller.bind(this);
+         this.state={"logged":false,view:"",};
+        this.handleListener=this.handleListener.bind(this);
+        this.handleCallListener=this.handleCallListener.bind(this);
+        this.handlehistorialListener=this.handlehistorialListener.bind(this);
+        this.handlecallingListener=this.handlecallingListener.bind(this)
     }
-
-    _getCaller() {
-        this.setState({callers: Historial._getCaller()});
-    }
-
-
- componentDidMount()
-    {
-        // DOM elemgient where the Timeline will be attached
-        var container = document.getElementById('timeline-embed');
-
-        // Create a DataSet (allows two way data-binding)
-        var items = new vis.DataSet([
-
-            {id: 1, content:'<img src="dist/imagen/tarea.jpg" style="width:14px; height:14px;">' ,title:'<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>',start: '2017-11-15'},
-            {id: 2, content: '<img src="dist/imagen/tarea.jpg" style="width:14px; height:14px;">',title:'<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>', start: '2017-11-15'},
-            {id: 3, content: '<img src="dist/imagen/reunion.jpg" style="width:14px; height:14px;">',title:'<table border="1"><tr><td>reunion2017-11-8</td><td>realizar correciones</td></tr></table>', start: '2017-11-16'},
-            {id: 4, content: '<img src="dist/imagen/reunion.jpg" style="width:14px; height:14px;">', title:'<table border="1"><tr><td>reunion2017-11-8</td><td>realizar correciones</td></tr></table>',start: '2017-11-13'},
-            {id: 5, content: '<img src="dist/imagen/llamada.jpg" style="width:14px; height:14px;">', title:'<table border="1"><tr><td>llamada2017-11-8</td><td>realizar correciones</td></tr></table>',start: '2017-11-14'},
-            {id: 6, content: '<img src="dist/imagen/tarea.jpg" style="width:14px; height:14px;">',title:'<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>', start: '2017-11-15'},
-            {id: 7, content: '<img src="dist/imagen/llamada.jpg" style="width:14px; height:14px;">',title:'<table border="1"><tr><td>llamada2017-11-8</td><td>realizar correciones</td></tr></table>' ,start: '2017-11-15'},
-            {id: 8, content: '<img src="dist/imagen/reunion.jpg" style="width:14px; height:14px;">', title:'<table border="1"><tr><td>reunion2017-11-8</td><td>realizar correciones</td></tr></table>',start: '2017-11-14'},
-            {id: 9, content: '<img src="dist/imagen/llamada.jpg" style="width:14px; height:14px;">',title:'<table border="1"><tr><td>llamada2017-11-8</td><td>realizar correciones</td></tr></table>', start: '2017-11-14'},
-            {id: 10, content: '<img src="dist/imagen/tarea.jpg" style="width:14px; height:14px;">', title:'<table border="1"><tr><td>Tarea2017-11-8</td><td>realizar correciones</td></tr></table>',start: '2017-11-14'}
-        ]);
-
-        // Configuration for the Timeline
-        var options = {
-            showCurrentTime: true,
-            start: new Date(Date.now() - 1000 * 60 * 60 * 24*3),
-            end: new Date(Date.now() + 1000 * 60 * 60 * 24 * 3),
-            min: new Date(Date.now()- 1000 *60 *60 *24*4),
-            max:new Date(Date.now() + 1000 *60 *60 *24 *4),
-            tooltip: {
-                followMouse: true
+    componentDidMount(){
+        LoginStore.addChangeListener(this.handleListener);
+        CallStore.addChangeListener(this.handleCallListener);
+        HistorialStore.addChangeListener(this.handlehistorialListener);
+        CallingStore.addChangeListener(this.handlecallingListener);
+       this.socket.on('login:reponse', function (data) {
+            self.loginData = data;
+            if( data.status == 200 && data.sugar_status == 200 ){
+                self.isLogged = true;
             }
-        };
 
-        // Create a Timeline
-        var timeline = new vis.Timeline(container, items, options);
+        });
+
+
+        this.socket.on('ringing', function () {
+            }
+            );
+        this.socket.on('up', function () {
+
+        });
+        this.socket.on('hangup', function () {
+
+        });
 
 
     }
+    componentWillUnmount(){
+        LoginStore.removeChangeListener(this.handleListener);
+        CallStore.removeChangeListener(this.handleCallListener);
+        HistorialStore.removeChangeListener(this.handlehistorialListener);
+        CallingStore.removeChangeListener(this.handlecallingListener);
+    }
+    handleListener(){
+        console.log("LoginStore -- before emit -- is logged ",this.isLogged);
+        this.setState({"logged":LoginStore.isLogged});
+        console.log("LoginStore -- before emit -- is logged ",this.isLogged);
+    }
+
+    handleCallListener(hdl){
+        console.log("CTI -- handleCallListener -- is called ",hdl);
+        this.setState({"view":CallStore.view});
+        console.log("CTI -- handleCallListener -- is called ",hdl);
 
 
-    render()
-        {
-
-            return (
-                <div className="row">
-                    <div className="row">
-                    <div className="col-md-8">
-                        <div className="input-group ">
-                            <input type="text" className="form-control" placeholder="search" aria-describedby="basic-addon2"/>
-                            <span className="input-group-addon glyphicon glyphicon-search " id="basic-addon2" > </span>
-                        </div>
-                    </div>
-
-
-
-      <div className="col-md-2">
-                        <div> 1:20 </div>
-                    </div>
-                    <div className="col-md-1">
-                        <span className="glyphicon glyphicon-earphone"></span>
-                    </div>
-                    <div className="col-md-1">
-
-                    </div>
-
-
-                </div>
-                    <CallerList  todo="C"/>
-
-                    <br />
-                    <div className="row">
-
-                        <div id='timeline-embed' style={{width: '100%', height:'200px', overflow:'auto',  }}></div>
-
-
-
-                        <div >  <CTIC vista="r"/></div>
-
-                    <StatusBar vista="m"/>
-
-
-
-                </div>
-                </div>)
-
+    }
+    handlehistorialListener(){
+        console.log("CTI -- before emit -- is historia ",HistorialStore.view);
+        this.setState({"view":HistorialStore.view});
+        console.log("CTI -- before emit -- is historia ",HistorialStore.view);
+    }
+    handlecallingListener(){
+        console.log("CTI -- before emit -- is cti-call ",CallingStore.view);
+        this.setState({"view":CallingStore.view});
+        console.log("CTI -- before emit -- is cti-call ",CallingStore.view);
     }
 
 
 
+    render(){
+    console.log(this.state.view)
+      if (this.state.logged){
+          switch(this.state.view){
+
+              case "Historial": { return(
+                  <div>
+                      <Historial/>
+                  </div>);
+              }; break;
+
+              case "CTIClickTCall": { return(
+                  <div>
+                      <CTIClickTCall/>
+                      <StatusBar b="a"/>
+                  </div>);
+              }; break;
+              case "CTICall": { return(
+                  <div>
+                      <CTICall/>
+                  </div>);
+              }; break;
+
+              default : { return(
+                  <div>
+                      <Historial/>
+                  </div>);
+              }; break;
+
+          }
+
+
+
+
+
+      } else {
+          return(
+              <Login/>
+          )
+      }
+
+    }
 
 
 
